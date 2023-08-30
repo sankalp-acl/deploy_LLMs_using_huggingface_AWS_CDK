@@ -1,6 +1,6 @@
 # Deploying a large language model (LLM) to Amazon SageMaker using the AWS CDK
 
-This project makes use of the AWS CDK construct `aws-sagemaker-huggingface-llm`.
+This project makes use of the AWS CDK construct [aws-sagemaker-huggingface-llm](https://constructs.dev/packages/aws-sagemaker-huggingface-llm/v/0.0.6?lang=typescript)
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
