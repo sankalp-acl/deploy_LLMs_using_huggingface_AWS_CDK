@@ -1,6 +1,6 @@
-# Welcome to your CDK TypeScript project
+# Deploying a large language model (LLM) to Amazon SageMaker using the AWS CDK
 
-This is a blank project for CDK development with TypeScript.
+This project makes use of the AWS CDK construct `aws-sagemaker-huggingface-llm`.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 

@@ -1,16 +1,22 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { HuggingFaceLlm } from 'aws-sagemaker-huggingface-llm';
 
 export class DeployLlMsUsingHuggingfaceAwsCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'DeployLlMsUsingHuggingfaceAwsCdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    // create an LLM sagemaker endpoint
+    new HuggingFaceLlm(this, 'Llama2Llm', {
+      name: 'llama2-chat',
+      instanceType: 'ml.g5.2xlarge',
+      environmentVariables: {
+        HF_MODEL_ID: 'NousResearch/llama2-7b-chat-hf',
+        SM_NUM_GPUS: '1',
+        MAX_INPUT_LENGTH: '2048',
+        MAX_TOTAL_TOKENS: '4096',
+        MAX_BATCH_TOTAL_TOKENS: '8192',
+      },
+    })
   }
 }
